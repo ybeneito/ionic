@@ -8,14 +8,22 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'movies',
     pathMatch: 'full'
+  },
+  {
+    path: 'movies',
+    loadChildren: () => import('./video/list/list.module').then( m => m.ListPageModule)
+  },
+  {
+    path: 'detail',
+    loadChildren: () => import('./video/detail/detail.module').then( m => m.DetailPageModule)
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
   exports: [RouterModule]
 })

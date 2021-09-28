@@ -1,5 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../list/movie';
 import { VideoService } from '../service/video.service';
@@ -13,14 +12,15 @@ import { MovieDetail } from './movieDetail';
 })
 export class DetailPage implements OnInit {
 
+  protected movie : Movie;
   constructor(private service: VideoService, private route: ActivatedRoute) { 
   }
 
-  protected movies : any;
+ 
   
   ngOnInit() {
-    const name = this.route.snapshot.paramMap.get('title');
-    this.service.getMovieByName(name).then((data: MovieDetail) => this.movies = data.results);
+    const id = this.route.snapshot.paramMap.get('title');
+    this.service.getMovieById(id).then((data: MovieDetail) => this.movie = data.results)
   }
 
 }

@@ -11,15 +11,15 @@ export class VideoService {
     private http: HttpClient
   ) { }
 
-  private key = "k_9mss3837";
+  private key = "k_qkkrvlc6";
 
   public getPopularMovies(): Promise<Items>{
-    return this.http.get<Items>(`https://imdb-api.com/en/API/Top250Movies/${this.key}`)
+    return this.http.get<Items>(`https://imdb-api.com/en/API/MostPopularMovies/${this.key}`)
     .toPromise();
   }
 
-  public getMovieByName(name: string){
-    return this.http.get(`https://imdb-api.com/en/API/SearchMovie/${this.key}/${name}`)
+  public getMovieById(id: string){
+    return this.http.get(`https://imdb-api.com/fr/API/Title/${this.key}/${id}`)
     .toPromise();
   }
 }

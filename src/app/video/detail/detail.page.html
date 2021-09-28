@@ -1,19 +1,19 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>detail</ion-title>
+     <ion-button [routerLink]="['/movies']">Back</ion-button>
   </ion-toolbar>
-  <ion-button [routerLink]="/movies">Back</ion-button>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let movie of movies;">
+  <ion-card>
     <img src="{{movie.image}}" />
     <ion-card-header>
       <ion-card-subtitle>{{movie.crew}}</ion-card-subtitle>
       <ion-card-title>{{movie.title}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, voluptate!
+      {{movie.plot}} 
     </ion-card-content>
   </ion-card>
 </ion-content>

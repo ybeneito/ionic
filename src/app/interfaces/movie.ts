@@ -3,9 +3,7 @@ export interface Movie {
     title: string;
     image: string;
     releaseDate: string;
-    plot: string
-}
-
-export interface Items {
-    items: Movie[];
+    plot: string,
+    realisator: string,
+    description: string
 }

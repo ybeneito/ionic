@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Movie } from '../list/movie';
+import { Movie } from '../../interfaces/movie';
 
 @Component({
   selector: 'app-item',

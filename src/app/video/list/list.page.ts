@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from '../service/video.service';
-import { Items, Movie } from './movie';
+import {  Movie } from '../../interfaces/movie';
 
 @Component({
   selector: 'app-list',
@@ -10,11 +10,11 @@ import { Items, Movie } from './movie';
 })
 export class ListPage implements OnInit {
 
-  protected movies: Movie[];
+  public movies: Movie[];
   constructor( private service: VideoService ) { }
 
 
   ngOnInit(): void {
-    this.service.getPopularMovies().then((data: Items) => this.movies = data.items);
+    this.service.getMovies().subscribe(movies => this.movies = movies);
   }
 }

@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from '../list/movie';
+import { Movie } from '../../interfaces/movie';
 import { VideoService } from '../service/video.service';
-import { MovieDetail } from './movieDetail';
 
 
 @Component({
@@ -20,7 +19,7 @@ export class DetailPage implements OnInit {
   
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('title');
-    this.service.getMovieById(id).then((data: MovieDetail) => this.movie = data.results)
+    this.service.getOneMovie(id).subscribe((data: Movie) => this.movie = data)
   }
 
 }

@@ -2,17 +2,18 @@
   <ion-toolbar>
     <ion-title>detail</ion-title>
   </ion-toolbar>
+  <ion-button [routerLink]="/movies">Back</ion-button>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <img src="./madison.jpg" />
+  <ion-card *ngFor="let movie of movies;">
+    <img src="{{movie.image}}" />
     <ion-card-header>
-      <ion-card-subtitle>Destination</ion-card-subtitle>
-      <ion-card-title>Madison, WI</ion-card-title>
+      <ion-card-subtitle>{{movie.crew}}</ion-card-subtitle>
+      <ion-card-title>{{movie.title}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, voluptate!
     </ion-card-content>
   </ion-card>
 </ion-content>

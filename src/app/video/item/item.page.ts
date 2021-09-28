@@ -9,9 +9,10 @@ import { Movie } from '../list/movie';
 export class ItemPage implements OnInit {
 
   @Input() movie: Movie
+  
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
 
 }

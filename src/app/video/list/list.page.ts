@@ -15,7 +15,6 @@ export class ListPage implements OnInit {
 
 
   ngOnInit(): void {
-    this.service.getPopularMovie().then((data: Items) => this.movies = data.items);
+    this.service.getPopularMovies().then((data: Items) => this.movies = data.items);
   }
-
 }

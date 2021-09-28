@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./video/list/list.module').then( m => m.ListPageModule)
   },
   {
-    path: 'detail',
+    path: 'movies/:title',
     loadChildren: () => import('./video/detail/detail.module').then( m => m.DetailPageModule)
   },
 ];

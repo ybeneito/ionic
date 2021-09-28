@@ -1,5 +1,5 @@
 
-<ion-item >
+<ion-item (click)="getMovie(movie.title)" [routerLink]="['/movies', movie.title]">
   <ion-avatar slot="start">
     <img src={{movie.image}}>
   </ion-avatar>

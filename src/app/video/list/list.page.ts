@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { VideoService } from '../service/video.service';
 import {  Movie } from '../../interfaces/movie';
 
@@ -8,13 +8,18 @@ import {  Movie } from '../../interfaces/movie';
   styleUrls: ['./list.page.scss'],
   providers: [VideoService]
 })
-export class ListPage implements OnInit {
+export class ListPage implements OnInit, OnDestroy {
 
   public movies: Movie[];
   constructor( private service: VideoService ) { }
 
 
   ngOnInit(): void {
-    this.service.getMovies().subscribe(movies => this.movies = movies);
+    this.service.getMovies();
+    this.service.subject.asObservable().subscribe((data: Movie[]) => this.movies= data)
+  }
+
+  ngOnDestroy(): void {
+    this.service.getMovies().unsubscribe()
   }
 }

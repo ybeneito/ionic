@@ -1,17 +1,10 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>detail</ion-title>
-     <ion-button [routerLink]="['/movies']">Back</ion-button>
   </ion-toolbar>
+  <ion-button [routerLink]="['/movies']">Back</ion-button>
 </ion-header>
 
 <ion-content>
-    <img src="{{movie.image}}" />
-    <ion-card-header>
-      <ion-card-subtitle>{{movie.crew}}</ion-card-subtitle>
-      <ion-card-title>{{movie.title}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      {{movie.plotLocal}} 
-    </ion-card-content>
+  <app-full [movie]="movie"></app-full>
 </ion-content>

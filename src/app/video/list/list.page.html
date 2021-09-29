@@ -5,5 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <app-item *ngFor="let movie of movies" [movie]="movie"></app-item>
+  <ion-list>
+    <app-item *ngFor="let movie of movies" [movie]="movie"></app-item>
+  </ion-list>
 </ion-content>

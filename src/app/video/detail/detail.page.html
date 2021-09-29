@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar>
+    <ion-button [routerLink]="['/movies']">Back</ion-button>
     <ion-title>detail</ion-title>
   </ion-toolbar>
-  <ion-button [routerLink]="['/movies']">Back</ion-button>
 </ion-header>
 
 <ion-content>
-  <app-full [movie]="movie"></app-full>
+  <app-full [movie] = "movie"></app-full>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../interfaces/movie';
+import {VideoService} from "../service/video.service";
 
 @Component({
   selector: 'app-item',
@@ -9,10 +10,14 @@ import { Movie } from '../../interfaces/movie';
 export class ItemPage implements OnInit {
 
   @Input() movie: Movie
-  
-  constructor() { }
+
+  constructor(private service: VideoService) { }
 
   ngOnInit() { }
+
+  deleteMovie(id: string){
+    return this.service.deleteMovie(id)
+  }
 
 
 }

@@ -5,5 +5,7 @@ export interface Movie {
     releaseDate: string;
     plot: string,
     realisator: string,
-    description: string
+    description: string,
+    year: number,
+    fullTitle: string
 }

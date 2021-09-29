@@ -14,10 +14,12 @@ export class ListPage implements OnInit, OnDestroy {
   constructor( private service: VideoService ) { }
 
 
+
   ngOnInit(): void {
     this.service.getMovies();
-    this.service.subject.asObservable().subscribe((data: Movie[]) => this.movies= data)
+    this.service.getObservable().subscribe((data: Movie[]) => this.movies= data)
   }
+
 
   ngOnDestroy(): void {
     this.service.getMovies().unsubscribe()

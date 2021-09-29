@@ -10,18 +10,18 @@ import {  Movie } from '../../interfaces/movie';
 })
 export class VideoService {
 
-  public subject: BehaviorSubject<Movie[]>
+  private subject: BehaviorSubject<Movie[]>
   private key = "k_qkkrvlc6";
   private movies: Movie[]
   private movie: Movie
 
   constructor(
     private http: HttpClient
-  ) { 
-    this.subject = new BehaviorSubject(([] as Movie[]))
+  ) {
+    this.subject = new BehaviorSubject([])
   }
 
-  
+
 
   public getMovies(): Subscription {
     return this.http.get<Movie[]>(`https://imdb-api.com/en/API/MostPopularMovies/${this.key}`)
@@ -32,17 +32,21 @@ export class VideoService {
     })
   }
 
+  public getObservable() {
+    return this.subject.asObservable()
+  }
+
   public getOneMovie(id: string): Observable<Movie> {
     return this.http.get<Movie>(`https://imdb-api.com/fr/API/Title/${this.key}/${id}`)
     .pipe(map((data: any) => this.movie = data))
   }
 
-  // public deleteMovie(id: string){
-  //   this.movies.map((id, movie) => {
-  //     if(movie.id === id) {
-  //       this.movies.splice(movie, 1)
-  //     }
-  //     this.subject.next(this.movies)
-  //   })
-  // }
+   public deleteMovie(id: string){
+     this.movies.map((m, index) => {
+       if(m.id === id) {
+         this.movies.splice(index,1)
+       }
+       this.subject.next(this.movies)
+     })
+   }
 }

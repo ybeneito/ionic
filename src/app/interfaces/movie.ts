@@ -10,5 +10,5 @@ export interface Movie {
     fullTitle: string,
     crew: string,
     plotLocal: string,
-  directors: string
+    directors: string
 }

@@ -6,7 +6,6 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { VideoModule } from '../video/video.module';
-import { ListPage } from '../video/list/list.page';
 
 
 @NgModule({

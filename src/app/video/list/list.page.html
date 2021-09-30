@@ -1,7 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Les films populaires du moments</ion-title>
-    <ion-button color="danger" size="small" href="http://localhost:8100">Se déconnecter</ion-button>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-chip>
+          <ion-avatar>
+            <img src="{{infoUser.picture}}" alt="">
+          </ion-avatar>
+          <ion-label>{{infoUser.given_name}}</ion-label>
+
+        </ion-chip>
+      </ion-button>
+
+      <ion-button color="danger" size="small" href="http://localhost:8100">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Film-Z</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,3 +25,5 @@
     <app-item *ngFor="let movie of movies" [movie]="movie"></app-item>
   </ion-list>
 </ion-content>
+
+

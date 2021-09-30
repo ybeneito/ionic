@@ -1,8 +1,8 @@
 
 <ion-item>
-  <ion-avatar [routerLink]="['/movies', movie.id]" slot="start">
+  <ion-thumbnail [routerLink]="['/movies', movie.id]" slot="start">
     <img src={{movie.image}} alt="affiche du film">
-  </ion-avatar>
+  </ion-thumbnail>
   <ion-label>
     <h2>{{movie.title}}</h2>
     <h3>{{movie.year}}</h3>

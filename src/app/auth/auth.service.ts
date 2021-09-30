@@ -3,6 +3,7 @@ import { tokenReference } from '@angular/compiler';
 import { Injectable, Optional } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Logs } from '../interfaces/log';
+import { User } from '../interfaces/user'
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Logs } from '../interfaces/log';
 export class AuthServiceService {
 
   private token: string;
+  public user: User
 
   constructor(private router: ActivatedRoute, private http: HttpClient, @Optional() private config: Logs) { }
 
@@ -29,7 +31,7 @@ export class AuthServiceService {
         "access_token",
         localStorage.getItem('access_token')
       )
-    }).toPromise().then(data => console.log(data));
+    }).toPromise().then((data: User) => this.user = data);
   }
 
   public constructUrl(): string{

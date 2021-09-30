@@ -37,6 +37,6 @@ export class AuthServiceService {
   }
 
   public destroyToken():void {
-    localStorage.removeItem("access_token")
+    localStorage.removeItem(localStorage.user_token)
   }
 }

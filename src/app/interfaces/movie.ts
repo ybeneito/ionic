@@ -7,5 +7,8 @@ export interface Movie {
     realisator: string,
     description: string,
     year: number,
-    fullTitle: string
+    fullTitle: string,
+    crew: string,
+    plotLocal: string,
+  directors: string
 }

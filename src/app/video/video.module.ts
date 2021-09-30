@@ -7,8 +7,7 @@ import { MovieToItemPipe } from './pipe/movie-to-item.pipe';
     // MovieToItemPipe
   ],
   imports: [
-    CommonModule,
-    
+    CommonModule
   ]
 })
 export class VideoModule { }

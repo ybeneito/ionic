@@ -1,10 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button [routerLink]="['/movies']">Back</ion-button>
     <ion-title>detail</ion-title>
   </ion-toolbar>
+  <ion-back-button [routerLink]="['/movies']" routerDirection="back">back</ion-back-button>
 </ion-header>
 
 <ion-content>
-  <app-full [movie] = "movie"></app-full>
+
+  <ion-card *ngFor="let mov of movie">
+    <ion-card-header>
+      <ion-card-title>{{mov.title}}</ion-card-title>
+      <ion-card-subtitle>{{mov.directors}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <img src="{{mov.image}}" alt="affiche du film"/>
+      {{mov.plotLocal}}
+    </ion-card-content>
+  </ion-card>
+
+
 </ion-content>

@@ -17,7 +17,7 @@ export class ListPage implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.service.getMovies();
-    this.service.getObservable().subscribe((data: Movie[]) => this.movies= data)
+    this.service.getObservable().subscribe((data: Movie[]) => this.movies = data)
   }
 
 

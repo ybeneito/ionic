@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../../interfaces/movie';
 import { VideoService } from '../service/video.service';
@@ -10,19 +10,17 @@ import { VideoService } from '../service/video.service';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-
-  public movie : Movie;
-  constructor(private service: VideoService, private route: ActivatedRoute) { 
+  @Input() movies: Movie[];
+  public movie: Movie[]
+  constructor(private service: VideoService, private route: ActivatedRoute) {
   }
 
- 
-  
+
+
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.service.getOneMovie(id).subscribe((data: Movie) => {
-      this.movie = data
-      console.log(data)
-    })
+    this.service.getOneMovie(id)
+      this.service.getObservable().subscribe((data: Movie[]) => this.movie = data)
   }
 
 }

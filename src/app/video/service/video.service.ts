@@ -28,6 +28,7 @@ export class VideoService {
     .pipe(map((data: any) => data.items))
     .subscribe((data: Movie[]) => {
       this.subject.next(data)
+      console.log('movies: ' + data)
       this.movies = data
     })
   }
@@ -36,9 +37,14 @@ export class VideoService {
     return this.subject.asObservable()
   }
 
-  public getOneMovie(id: string): Observable<Movie> {
-    return this.http.get<Movie>(`https://imdb-api.com/fr/API/Title/${this.key}/${id}`)
-    .pipe(map((data: any) => this.movie = data))
+  public getOneMovie(id: string): Subscription {
+    return this.http.get<Movie[]>(`https://imdb-api.com/fr/API/Title/${this.key}/${id}`)
+    .pipe(map((data: any) => data))
+      .subscribe((data: Movie[]) => {
+        this.subject.next(data)
+        console.log("data: " + data)
+        this.movies = data
+      })
   }
 
    public deleteMovie(id: string){

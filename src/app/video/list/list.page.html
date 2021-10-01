@@ -7,20 +7,17 @@
             <img src="{{infoUser.picture}}" alt="">
           </ion-avatar>
           <ion-label>{{infoUser.given_name}}</ion-label>
-
         </ion-chip>
       </ion-button>
-
       <ion-button color="danger" size="small" href="http://localhost:8100">
         <ion-icon name="close" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
-
     <ion-title>Film-Z</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="height: 100vh">
   <ion-list>
     <app-item *ngFor="let movie of movies" [movie]="movie"></app-item>
   </ion-list>

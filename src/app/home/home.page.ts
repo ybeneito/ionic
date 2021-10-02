@@ -8,7 +8,7 @@ import {AuthServiceService} from "../auth/auth.service";
 })
 export class HomePage {
 
-  constructor(private service: AuthServiceService ) {
+  constructor(public service: AuthServiceService ) {
 
   }
 
